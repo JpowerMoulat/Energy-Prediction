@@ -1,6 +1,6 @@
 # Wind Power Forecasting Project
 
-This project helps you build and evaluate machine learning models to forecast wind power generation in Orkney using weather data. It includes data pipeline setup, model training, and experiment tracking using MLFlow.
+This project allows youto  build and evaluate machine learning models to forecast wind power generation using weather data. It includes data pipeline setup, model training, and experiment tracking using MLFlow.
 
 ## Project Structure
 

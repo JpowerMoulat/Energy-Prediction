@@ -13,16 +13,16 @@ This project helps you build and evaluate machine learning models to forecast wi
 ## Setup
 
 1. Create a virtual environment:
-   ```bash
+```bash
    python -m venv venv
    source venv/bin/activate  # On Windows: venv\Scripts\activate
-   ```
+```
 
 2. Install dependencies:
-   ```bash
+```bash
    pip install -r requirements.txt
    pip install -r requirements2.txt
-   ```
+```
 
 ## Project Overview
 
@@ -60,20 +60,32 @@ MLFlow is used for:
 ## Usage
 
 1. Start the MLFlow server:
-   ```bash
-   mlflow server
-   ```
+~~~ bash
+git clone https://github.itu.dk/jonie/Windmill-Energy-Prediction.git
+cd Windmill-Energy-Prediction
 
-2. Run the main script:
-   ```bash
-   python Assignment_2_Template_MLFlow_Project.py
-   ```
+py -3.11 -m venv .venv
+.venv\Scripts\activate
+pip install -r requirements2.txt
+mlflow server
+~~~
 
-3. View experiments at http://localhost:5000
+2. View experiments at http://localhost:5000. Then Run the main script in a new terminal. Replace brackets with your specific ML model:
+```bash
+.venv\Scripts\activate
+mlflow run . --experiment-name XGBoost
+mlflow models serve -m mlartifacts/[experiment]/[run]/artifacts/model --env-manager local
+```
+
+3. Close old terminal and create new terminal. Replace Time, Speed and Direction with given variables.
+~~~bash
+curl -X POST http://127.0.0.1:5000/invocations -H "Content-Type: application/json" -d "{\"dataframe_records\":[{\"Time\":\"2025-01-10T15:00:00Z\",\"Speed\":7.5,\"Direction\":\"NW\"}]}"
+~~~
+
 
 ## Requirements
 
-See `requirements.txt` for full list of dependencies. Key requirements:
+See `requirements.txt` and `requirements2.txt` for full list of dependencies. Key requirements:
 - Python 3.11+
 - MLFlow
 - scikit-learn

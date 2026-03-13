@@ -21,6 +21,7 @@ This project helps you build and evaluate machine learning models to forecast wi
 2. Install dependencies:
    ```bash
    pip install -r requirements.txt
+   pip install -r requirements2.txt
    ```
 
 ## Project Overview
